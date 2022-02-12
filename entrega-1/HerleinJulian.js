@@ -6,24 +6,24 @@ class Usuario {
         this.libros = libros;
         this.mascotas = mascotas;
         
-    };
+    }
 
     getFullName(){
         return `${this.nombre} ${this.apellido}`;
-    };
+    }
 
     addMascota(mascota){
         this.mascotas.push(mascota);
-    };
+    }
 
     countMascotas(){
         return this.mascotas.length;
-    };
+    }
 
     addBook(book,autorVar){
         let newIndex = this.libros.length;
         this.libros[newIndex] = {nombre:book,autor:autorVar};
-    };
+    }
 
     getBookNames(){
         const bookArray = []
@@ -31,9 +31,9 @@ class Usuario {
             bookArray.push(book.nombre)
         });
         return bookArray;
-    };
+    }
 
-};
+}
 
 const usuario1 =  new Usuario("Julian","Herlein",[{nombre:"HP",autor:"JK Rowling"}],["Perro"]);
 
