@@ -7,7 +7,7 @@ const getAllProducts = async (req,res) => {
         file = new Array(file)
         res.status(200).json(JSON.parse(file))        
     } catch (error) {
-        res.status(404).send(error)
+        res.send(error)
     }    
 }
 
@@ -23,12 +23,12 @@ const getProduct = async (req,res) => {
             res.status(200).json(idFiltered)
         }
         else{
-            res.status(404).json({error:"producto no encontrado"})
+            res.json({error:"producto no encontrado"})
         }
         
 
     } catch (error) {
-        res.status(404).send(error)
+        res.send(error)
     }   
 }
 
@@ -45,7 +45,7 @@ const createProduct = async (req,res) => {
         res.json(newProduct)
               
     } catch (error) {
-        res.status(404).send(error)
+        res.send(error)
     } 
 
     
@@ -75,7 +75,7 @@ const editProduct = async (req,res) => {
 
         res.status(200).json(idFiltered)        
     } catch (error) {
-        res.status(404).send(error)
+        res.send(error)
     }   
     
 }
@@ -92,7 +92,7 @@ const deleteProduct = async(req,res) => {
         res.json(jsonArray)   
     
     } catch (error) {
-        res.status(404).send(error)
+        res.send(error)
     }    
     
 }
