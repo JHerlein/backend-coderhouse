@@ -5,7 +5,8 @@ const getAllProducts = async (req,res) => {
     try {
         let file = await fs.promises.readFile('./files/products.txt')
         file = new Array(file)
-        res.status(200).json(JSON.parse(file))        
+        res.status(200).json(JSON.parse(file))
+        //res.render('products.html')        
     } catch (error) {
         res.send(error)
     }    
@@ -20,7 +21,8 @@ const getProduct = async (req,res) => {
             return entry.id==productID            
         })        
         if (idFiltered.length != 0){
-            res.status(200).json(idFiltered)
+            // res.status(200).json(idFiltered)
+            res.status(200).send(idFiltered)
         }
         else{
             res.json({error:"producto no encontrado"})
@@ -42,7 +44,7 @@ const createProduct = async (req,res) => {
         newProduct.id = newId
         file.push(newProduct)
         await fs.promises.writeFile('./files/products.txt',JSON.stringify(file,null,2))
-        res.send(newProduct)
+        res.redirect('/')
               
     } catch (error) {
         res.send(error)
